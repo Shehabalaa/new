@@ -1,20 +1,20 @@
 set nocompatible              " required
 filetype off                  " required
 set encoding=utf-8
+set whichwrap+=h,l
+nnoremap ; l
+nnoremap l j
+nnoremap j h
 "call togglebg#map("<F5>")
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-"else
-"  colorscheme zenburn
-endif
 set nu
-
 let python_highlight_all=1
 syntax on
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+set tabstop=4
+set shiftwidth=4
+set expandtab
 " python indentation
 au BufNewFile,BufRead *.py
     \ set tabstop=4
@@ -25,8 +25,6 @@ au BufNewFile,BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
-" Flagging Unnecessary Whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 set clipboard=unnamed
 
 " Enable folding with the spacebar
