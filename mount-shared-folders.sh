@@ -1,1 +1,0 @@
-/usr/local/sbin/mount-shared-folders

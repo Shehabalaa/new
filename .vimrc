@@ -1,5 +1,4 @@
 set nocompatible              " required
-filetype off                  " required
 set encoding=utf-8
 set whichwrap+=h,l
 nnoremap ; l
@@ -7,7 +6,6 @@ nnoremap l j
 nnoremap j h
 "call togglebg#map("<F5>")
 set nu
-let python_highlight_all=1
 syntax on
 " Enable folding
 set foldmethod=indent
@@ -15,7 +13,38 @@ set foldlevel=99
 set tabstop=4
 set shiftwidth=4
 set expandtab
-" python indentation
+set clipboard=unnamed
+autocmd BufNewFile,BufRead *.asm set ft=masm
+"c,c++  
+au BufNewFile,BufRead *.c
+            \set enc=utf-8
+            \set fenc=utf-8
+            \set termencoding=utf-8
+            \set nocompatible
+            \set autoindent
+            \set smartindent
+            \set textwidth=120
+            \set t_Co=256
+            \syntax on
+            \set showmatch
+            \set comments=sl:/*,mb:\ *,elx:\ */
+            \set tags+=~/.vim/tags/cpp
+            \set tags+=~/.vim/tags/gl
+            \set tags+=~/.vim/tags/sdl
+            \set tags+=~/.vim/tags/qt4
+            \let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
+            \nmap <F2> :w<CR>
+            \imap <F2> <ESC>:w<CR>i
+            \map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+            \map <F5> :!ctags -R –c++-kinds=+p –fields=+iaS –extra=+q .<CR>
+            \map <F6> :Dox<CR>
+            \map <F7> :make<CR>
+            \map <S-F7> :make clean all<CR>
+            \map <F12> <C-]>
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+let python_highlight_all=1
 au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
@@ -25,7 +54,6 @@ au BufNewFile,BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
-set clipboard=unnamed
 
 " Enable folding with the spacebar
 nnoremap <space> za
